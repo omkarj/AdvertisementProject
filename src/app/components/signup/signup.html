@@ -1,0 +1,74 @@
+<div id="id02" class="modal">
+                        <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm.value)" class="modal-content animate" novalidate>
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <h2 style="text-align:center">Sign Up</h2>
+                            </div>
+
+                            <div class="container_login">
+                                <label><b>First Name </b></label>
+                                <input type="text" required minlength="3" required maxlength="20" placeholder="First Name" name="firstName" #nameModelRef="ngModel" ngModel><br><br>
+                                <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required" >Please enter your First Name</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength"> First Name length should be minimum 3 characters </div>
+                                    <div [hidden]="!nameModelRef.errors.maxlength"> First name length should be maximum 20 characters </div>
+                                </div>
+
+
+                                <label><b>Last Name </b></label>
+                                <input type="text" required minlength="1" placeholder="Last Name" name="lastName" #nameModelRef="ngModel" ngModel><br><br>
+                                <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required" >Please enter your Last Name</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength"> Last Name length should be minimum 1 characters </div>
+                                    
+                                </div>
+                                
+
+                                <label><b>Username </b></label>
+                                <input type="text" required minlength="3" placeholder="Username" name="userName" #nameModelRef="ngModel" ngModel><br><br>
+                                <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required" >Please enter Username</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength"> Username length should be minimum 3 characters </div>
+                                    
+                                </div>
+
+
+                                <label><b>Password </b></label>
+                                <input type="password" required minlength="6" placeholder="Password" name="password" #nameModelRef="ngModel" ngModel><br><br>
+                                <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required" >Please enter Password</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength"> Password length should be minimum 6 characters </div>
+                                    
+                                </div>
+
+
+                                <label><b>Email </b></label>
+                                <input type="email" required minlength="3" placeholder="Email" name="email" #nameModelRef="ngModel" ngModel><br><br>
+                                <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required" >Please enter Email ID</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength"> Enter a valid Email ID </div>
+                                    
+                                </div>
+
+
+                                <label><b>Phone </b></label>
+                                <input type="number" required minlength="10" required maxlength="10" placeholder="Phone" name="phone" #nameModelRef="ngModel" ngModel><br><br>
+                                <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required" >Please enter your Phone Number</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength"> Phone Number must be 10 digits </div>
+                                    <div [hidden]="!nameModelRef.errors.maxlength"> Phone Number must be 10 digits </div>
+                                </div>
+
+
+                                <input type="checkbox" checked="checked"> Remember me
+                                <br>
+                                <p>By creating an account you agree to our Terms & Conditions. </p>
+
+                                <div class="clearfix">
+                                    <button [disabled]="!signupForm.form.valid" (click)='onSignup(signupForm.value)'  type="submit" class="btn btn-lg" style="color:black; margin-bottom: 10px;">Sign Up</button>
+                                </div> 
+                                    
+                            </div>
+
+                        </form>
+</div>

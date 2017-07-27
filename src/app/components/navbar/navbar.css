@@ -1,0 +1,91 @@
+  .navbar {
+      margin-bottom: 0;
+      background-color: black;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px;
+      line-height: 1.42857143;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff;
+  }
+
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: black;
+      background-color: #fff ;
+  }
+
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff;
+  }
+
+  .open .dropdown-toggle {
+      color: #fff;
+      background-color: #555 !;
+  }
+
+  .dropdown-menu li a {
+      color: #000;
+  }
+  
+  .dropdown-menu li a:hover {
+      background-color: white;
+  }
+
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  
+  .item span {
+      font-style: normal;
+  }
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; 
+    border: 1px solid #888;
+    width: 400px; 
+}
+
+.container_login {
+    padding: 0px;
+    text-align: center ;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+.item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+}
+
+.item span {
+      font-style: normal;
+}
+  

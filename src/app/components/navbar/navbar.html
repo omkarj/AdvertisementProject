@@ -1,0 +1,142 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="navbar.html"><span class="glyphicon glyphicon-send">SellKaro.com</span></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a routerLink="/home" routerLinkActive="active"><span class="glyphicon glyphicon-home">Home</span></a></li>
+                <li><a routerLink="/advertisement" routerLinkActive="active"><span class="glyphicon glyphicon-blackboard"></span>Advertisement</a></li>
+                <li><a routerLink="/contactUs" routerLinkActive="active"><span class="glyphicon glyphicon-blackboard"></span>Contact Us</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account
+                     <span class="glyphicon glyphicon-user"></span> 
+                    <span class="caret"></span></a>
+
+
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="document.getElementById('id01').style.display='block'"> Log In</a></li>
+                        <li><a href="#" onclick="document.getElementById('id02').style.display='block'"> Sign Up</a></li>
+                    </ul>
+
+                    
+                    <div id="id01" class="modal">
+                        <form class="modal-content animate" #loginForm="ngForm"  (ngSubmit)="onSubmit(loginForm.value)" novalidate>
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <h2 style="text-align:center">Log In</h2>
+                            </div>
+
+                            <div class="container_login">
+                                <label><b> Username  </b></label>
+                                <input type="text" placeholder="  Username" name="userName" required minlength="3" #nameModelRef="ngModel" ngModel><br><br>
+
+                                <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required">Please enter Username</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength">Incorrect Username/Password</div>
+                                </div>
+                                
+                                <label><b> Password  </b></label>
+                                <input type="password" placeholder="  Password" name="password" required minlength="6" #nameModelRef="ngModel" ngModel><br><br>
+
+                                <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required">Please enter Password</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength">Incorrect Username/Password </div>
+                                </div>
+
+                                <button [disabled]="!loginForm.form.valid" type="button" (click)='onLogin(loginForm.value)' class="btn btn-lg">Log In</button><br>
+                                <input type="checkbox" checked="checked"> Remember me
+                                <br>
+                                <br>
+                            </div>
+
+                            <div class="container_login" style="background-color:black;  margin-bottom:0px;">
+                                <label><b> <a href="#">Forgot Password?</a> </b></label>
+                            </div>
+                        </form>
+                    </div>
+
+
+                         
+                    <div id="id02" class="modal">
+                        <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm.value)" class="modal-content animate" novalidate>
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <h2 style="text-align:center">Sign Up</h2>
+                        </div>
+
+                        <div class="container_login">
+                            <label><b>First Name </b></label><br>
+                            <input type="text" required minlength="3" required maxlength="20" placeholder="First Name" name="firstName" #nameModelRef="ngModel" ngModel><br><br>
+                            <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                <div [hidden]="!nameModelRef.errors.required" >Please enter your First Name</div>
+                                <div [hidden]="!nameModelRef.errors.minlength"> First Name length should be minimum 3 characters </div>
+                                <div [hidden]="!nameModelRef.errors.maxlength"> First name length should be maximum 20 characters </div>
+                            </div>
+
+
+                            <label><b>Last Name </b></label><br>
+                            <input type="text" required minlength="1" placeholder="Last Name" name="lastName" #nameModelRef="ngModel" ngModel><br><br>
+                            <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                <div [hidden]="!nameModelRef.errors.required" >Please enter your Last Name</div>
+                                <div [hidden]="!nameModelRef.errors.minlength"> Last Name length should be minimum 3 characters </div>
+                                
+                            </div>
+                            
+
+                            <label><b>Username </b></label><br>
+                            <input type="text" required minlength="3" placeholder="Username" name="userName" #nameModelRef="ngModel" ngModel><br><br>
+                            <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                <div [hidden]="!nameModelRef.errors.required" >Please enter Username</div>
+                                <div [hidden]="!nameModelRef.errors.minlength"> Username length should be minimum 3 characters </div>
+                                
+                            </div>
+
+
+                            <label><b>Password </b></label><br>
+                            <input type="password" required minlength="6" placeholder="Password" name="password" #nameModelRef="ngModel" ngModel><br><br>
+                            <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                                <div [hidden]="!nameModelRef.errors.required" >Please enter Password</div>
+                                <div [hidden]="!nameModelRef.errors.minlength"> Password length should be minimum 6 characters </div>
+                                
+                            </div>
+
+
+                            <label><b>Email </b></label><br>
+                            <input type="email" required minlength="3" placeholder="Email" name="email" #nameModelRef="ngModel" ngModel><br><br>
+                            <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                                <div [hidden]="!nameModelRef.errors.required" >Please enter Email ID</div>
+                                <div [hidden]="!nameModelRef.errors.minlength"> Enter a valid Email ID </div>
+                                
+                            </div>
+
+
+                            <label><b>Phone </b></label><br>
+                            <input type="number" required minlength="10" required maxlength="10" placeholder="Phone" name="phone" #nameModelRef="ngModel" ngModel><br><br>
+                            <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                <div [hidden]="!nameModelRef.errors.required" >Please enter your First Name</div>
+                                <div [hidden]="!nameModelRef.errors.minlength"> Phone Number must be 10 digits </div>
+                                <div [hidden]="!nameModelRef.errors.maxlength"> Phone Number must be 10 digits </div>
+                            </div>
+
+                            <p>By creating an account you agree to our Terms & Conditions. </p>
+
+                            <div class="clearfix">
+                                <button [disabled]="!signupForm.form.valid" (click)='onSignup(signupForm.value)' type="button" class="btn btn-lg" style="color:black; margin-bottom: 10px;">Sign Up</button>
+                            </div>                        
+                        </div>
+
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

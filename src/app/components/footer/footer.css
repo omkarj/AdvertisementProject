@@ -1,0 +1,29 @@
+.footer{
+      margin-bottom: 0px;
+      margin-top: 3px;
+      padding-bottom: 1px;
+      padding-top: 15px;
+      background-color: black;
+      z-index: 9999;
+      border: 0;
+      font-size: 13px ;
+      line-height: 1.42857143 ;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+      text-align: center;
+      position:fixed;
+      bottom:0;
+      left:0;
+      width: 100%;
+}
+
+footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: black;
+}
+
+.item span {
+      font-style: normal;
+  }

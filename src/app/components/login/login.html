@@ -1,0 +1,35 @@
+<div id="id01" class="modal">
+                        <form class="modal-content animate" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" novalidate>
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <h2 style="text-align:center">Log In</h2>
+                            </div>
+
+                            <div class="container_login">
+                                <label><b> Username  </b></label>
+                                <input type="text" placeholder="  Username" name="userName" required minlength="3" #nameModelRef="ngModel" ngModel><br><br>
+
+                                <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required">Please enter your name</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength">Incorrect Username/Password</div>
+                                </div>
+
+                                <label><b> Password  </b></label>
+                                <input type="password" placeholder="  Password" name="password" required minlength="6" #nameModelRef="ngModel" ngModel><br><br>
+
+                                <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                    <div [hidden]="!nameModelRef.errors.required">Please enter Password</div>
+                                    <div [hidden]="!nameModelRef.errors.minlength">Incorrect Username/Password </div>
+                                </div>
+
+                                <button [disabled]="!loginForm.form.valid" (click)='onLogin(loginForm.value)' type="submit" class="btn btn-lg">Log In</button><br>
+                                <input type="checkbox" checked="checked"> Remember me
+                                <br>
+                                <br>
+                            </div>
+
+                            <div class="container_login" style="background-color:black;  margin-bottom:0px;">
+                                <label><b> <a href="#">Forgot Password?</a> </b></label>
+                            </div>
+                        </form>
+                    </div>

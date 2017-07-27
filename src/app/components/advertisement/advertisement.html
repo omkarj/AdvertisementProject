@@ -1,0 +1,157 @@
+<div id="advertisement" class="container-fluid">
+    <div class="text-center">
+        <h2>Advertisement</h2>
+        <h4>Choose one to proceed</h4>
+    </div>
+
+    <div class="row slideanim">
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Show Ads</h1>
+                </div>
+                <div class="panel-body">
+                    <p> View a wide variety of Ads. </p>
+                </div>
+                <div class="panel-footer">
+                    <a href="#categories"><button class="btn btn-lg">Proceed</button></a>
+                </div>
+            </div>
+         </div>
+
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Post Ads</h1>
+                </div>
+                <div class="panel-body">
+                    <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+                        
+                         <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                 <p><b>Fact : </b>Ads with more photos get more views!</p>
+                            </div>
+                            <div class="item">
+                                <p>Create an attractive Ad!</p>
+                            </div>
+                            <div class="item">
+                                <p>Add a Catchy Description.</p>
+                            </div>
+                        </div>
+
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                    <button class="btn btn-lg"  onclick="document.getElementById('id03').style.display='block'">Proceed</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="id03" class="modal">
+            <form #postAdForm class="modal-content animate" (ngSubmit)="onSubmit(postAdForm.value)">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <h2 style="text-align:center">Post an Ad</h2>           
+                </div>
+
+                <div class="container_login">
+                    <b> Ad Title  </b><br>
+                    <input type="text" placeholder="  Ad Title" name="title" #nameModelRef="ngModel" ngModel><br><br>
+                    <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                        <div [hidden]="!nameModelRef.errors.required" >Please enter Ad Title</div>
+                    </div>
+
+                    <b> Name  </b><br>
+                    <input type="text" placeholder="  Name" name="name" #nameModelRef="ngModel" ngModel><br><br> 
+                    <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                        <div [hidden]="!nameModelRef.errors.required" >Please enter Name</div>
+                    </div>
+
+                    <b> Category  </b><br>
+                    <select >
+                            <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+                            
+                    </select>
+
+                    <br>
+                    <br>
+
+                    <label><b> Ad Description  </b></label><br>
+                    <textarea rows="2" cols="20" required minlength="5" name="description" #nameModelRef="ngModel" ngModel></textarea>
+                    <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                        <div [hidden]="!nameModelRef.errors.required" >Please enter Product Description</div>
+                        <div [hidden]="!nameModelRef.errors.minlength"> Description must be atleast 5 characters </div>
+                    </div>
+
+                    <br>
+                    <button type="button" (click)='onPost(postAdForm.value)'  class="btn btn-lg">Post</button><br>
+                    <br>
+                    <br>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>View my Ads</h1>
+                </div>
+                <div class="panel-body">
+                    <p>Check details of your past Ads.</p>
+                </div>
+                <div class="panel-footer">
+                     <button class="btn btn-lg" onclick="document.getElementById('id04').style.display='block'">Proceed</button>
+                </div>
+
+
+                <div id="id04" class="modal">
+                    <form class="modal-content animate" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" novalidate>
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <h2 style="text-align:center">Log In to Continue</h2>
+                        </div>
+
+                        <div class="container_login">
+                            <label><b> Username  </b></label>
+                            <input type="text" placeholder="  Username" name="userName" required minlength="3" #nameModelRef="ngModel" ngModel><br><br>
+
+                            <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                <div [hidden]="!nameModelRef.errors.required" >Please enter your name</div>
+                                <div [hidden]="!nameModelRef.errors.minlength">Incorrect Username/Password</div>
+                            </div>
+
+                            <label><b> Password  </b></label>
+                            <input type="password" placeholder="  Password" name="password" required minlength="6" #nameModelRef="ngModel" ngModel><br><br>
+                            
+                            <div *ngIf="nameModelRef.errors&& nameModelRef.touched" class="alert alert-danger">
+                                <div [hidden]="!nameModelRef.errors.required" >Please enter Password</div>
+                                <div [hidden]="!nameModelRef.errors.minlength">Incorrect Username/Password </div>
+                            </div>
+                            
+                            <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-lg">Log In</button><br>
+                            <input type="checkbox" checked="checked"> Remember me
+                            <br>
+                            <br>
+                        </div>
+
+                        <div class="container_login" style="background-color:black;  margin-bottom:0px;">
+                            <label><b> <a href="#">Forgot Password?</a> </b></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
